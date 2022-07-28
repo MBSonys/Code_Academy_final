@@ -57,7 +57,7 @@ ROOT_URLCONF = 'Wheelers.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['../Cars/static'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
