@@ -1,7 +1,15 @@
 from django.contrib import admin
 from .models import CarPoster
-from Users.models import Users
+from Users.models import Seller
 
-admin.site.register(CarPoster)
-admin.site.register(Users)
+
+class CarPostersAdmin(admin.ModelAdmin):
+    list_display = ('car_make', 'car_model', 'car_poster_owner', 'poster_date', 'car_poster_price', 'status')
+    list_filter = ('car_make', 'status')
+    search_fields = ('car_make', 'car_model', 'car_poster_owner', 'poster_date', 'car_poster_price', 'car_year')
+    list_editable = ['status']
+
+
+admin.site.register(CarPoster, CarPostersAdmin)
+admin.site.register(Seller)
 # Register your models here.
