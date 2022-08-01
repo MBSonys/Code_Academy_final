@@ -22,11 +22,14 @@ class CarPoster(models.Model):
     car_vin_number = models.CharField("Automobilio numeris (VIN)", max_length=30)
     car_poster_owner = models.ForeignKey(Users, on_delete=models.CASCADE)
     poster_date = models.DateTimeField("Skelbimo data", default=now, blank=True)
+    poster_sold_date = models.DateTimeField("Skelbimo pardavimo data", null=True, default=None)
+    car_poster_price = models.IntegerField("Skelbimo suma", default=None)
 
     POSTER_STATUS = (
         ('a', 'Patvirtintas'),
         ('w', 'Laukiamas'),
         ('r', 'Atmestas'),
+        ('s', 'Parduota/Neaktyvus')
     )
 
     status = models.CharField(
@@ -45,4 +48,7 @@ class CarPoster(models.Model):
 
     def get_absolute_url(self):
         return reverse('poster-detail', args=[str(self.id)])
+
+
+
 
