@@ -25,5 +25,7 @@ urlpatterns = [
     # path('Forum/', include('Forum.urls')),
     # path('Users/', include('Users.urls')),
     # path('accounts/', include('django.contrib.auth.urls')),
+    path('tinymce/', include('tinymce.urls')),
     path('', RedirectView.as_view(url='Cars/', permanent=True)),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
+    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

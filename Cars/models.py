@@ -2,6 +2,7 @@ from Users.models import Seller
 from django.db import models
 from django.urls import reverse
 from django.utils.timezone import now
+from tinymce.models import HTMLField
 
 
 class CarPoster(models.Model):
@@ -23,6 +24,14 @@ class CarPoster(models.Model):
     poster_date = models.DateTimeField("Skelbimo data", default=now, blank=True)
     poster_sold_date = models.DateTimeField("Skelbimo pardavimo data", null=True, default=None)
     car_poster_price = models.IntegerField("Skelbimo suma", default=None)
+    car_photo_1 = models.ImageField('Skelbimo nuotrauka 1', upload_to='poster-photos', null=True)
+    car_photo_2 = models.ImageField('Skelbimo nuotrauka 2', upload_to='poster-photos', null=True)
+    car_photo_3 = models.ImageField('Skelbimo nuotrauka 3', upload_to='poster-photos', null=True)
+    car_photo_4 = models.ImageField('Skelbimo nuotrauka 4', upload_to='poster-photos', null=True)
+    car_photo_5 = models.ImageField('Skelbimo nuotrauka 5', upload_to='poster-photos', null=True)
+    car_photo_6 = models.ImageField('Skelbimo nuotrauka 6', upload_to='poster-photos', null=True)
+    car_photo_7 = models.ImageField('Skelbimo nuotrauka 7', upload_to='poster-photos', null=True)
+    description = HTMLField()
 
     POSTER_STATUS = (
         ('a', 'Patvirtintas'),
