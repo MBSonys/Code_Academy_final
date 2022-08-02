@@ -6,31 +6,130 @@ from tinymce.models import HTMLField
 
 
 class CarPoster(models.Model):
-    car_make = models.CharField("Gamintojas", max_length=200)
-    car_model = models.CharField("Modelis", max_length=200)
-    car_year = models.DateField("Gamybos metai", auto_now=False)
-    car_engine = models.CharField("Variklis", max_length=200)
-    car_millage = models.IntegerField("Automobilio rida")
-    car_fuel_type = models.CharField("Kūro tipas", max_length=20)
-    car_chassis_type = models.CharField("Kebulo tipas", max_length=100)
-    car_door_number = models.CharField("Durų skaičius", max_length=10, null=True)
-    car_drive_wheel = models.CharField("Varantieji ratai", max_length=30, null=True)
-    car_transmission = models.CharField("Pavarų dėžė", max_length=50)
-    car_color = models.CharField("Spalva", max_length=100)
-    car_MOT = models.DateField("Tech. apžiūra iki")
-    car_weight = models.IntegerField("Automobilio masė")
-    car_vin_number = models.CharField("Automobilio numeris (VIN)", max_length=30)
-    car_poster_owner = models.ForeignKey(Seller, on_delete=models.CASCADE)
-    poster_date = models.DateTimeField("Skelbimo data", default=now, blank=True)
-    poster_sold_date = models.DateTimeField("Skelbimo pardavimo data", null=True, default=None)
-    car_poster_price = models.IntegerField("Skelbimo suma", default=None)
-    car_photo_1 = models.ImageField('Skelbimo nuotrauka 1', upload_to='poster-photos', null=True)
-    car_photo_2 = models.ImageField('Skelbimo nuotrauka 2', upload_to='poster-photos', null=True)
-    car_photo_3 = models.ImageField('Skelbimo nuotrauka 3', upload_to='poster-photos', null=True)
-    car_photo_4 = models.ImageField('Skelbimo nuotrauka 4', upload_to='poster-photos', null=True)
-    car_photo_5 = models.ImageField('Skelbimo nuotrauka 5', upload_to='poster-photos', null=True)
-    car_photo_6 = models.ImageField('Skelbimo nuotrauka 6', upload_to='poster-photos', null=True)
-    car_photo_7 = models.ImageField('Skelbimo nuotrauka 7', upload_to='poster-photos', null=True)
+    car_make = models.CharField(
+        "Gamintojas",
+        max_length=200,
+        help_text="Automobilio gamintojo pavadinimas"
+    )
+    car_model = models.CharField(
+        "Modelis",
+        max_length=200,
+        help_text="Automobilio gamintojo modelis")
+
+    car_year = models.DateField(
+        "Gamybos metai",
+        auto_now=False,
+        help_text="Automobilio pagaminimo metai"
+    )
+    car_engine = models.CharField(
+        "Variklis",
+        max_length=200,
+        help_text="Automobilio darbinis tūris ir sutrumpintas variklio pavadinimas"
+    )
+    car_millage = models.IntegerField(
+        "Automobilio rida",
+        help_text="Automobilio nuvažiotas kilometražas (KM)"
+    )
+    car_fuel_type = models.CharField(
+        "Kūro tipas",
+        max_length=20,
+        help_text="Automobilio variklio kūro tipas"
+    )
+    car_chassis_type = models.CharField(
+        "Kebulo tipas",
+        max_length=100,
+        help_text="Automobilio kebulo tipas/forma")
+
+    car_door_number = models.CharField(
+        "Durų skaičius",
+        max_length=10,
+        null=True,
+        help_text="Automobilio dūrų skaičius"
+    )
+    car_drive_wheel = models.CharField(
+        "Varantieji ratai",
+        max_length=30,
+        null=True,
+        help_text="Automobilio varantieji ratai"
+    )
+    car_transmission = models.CharField(
+        "Pavarų dėžė",
+        max_length=50,
+        help_text="Automobilio pavarų dežės tipas"
+    )
+    car_color = models.CharField(
+        "Spalva",
+        max_length=100,
+        help_text="Automobilio kebulo spalva"
+    )
+    car_MOT = models.DateField(
+        "Tech. apžiūra iki",
+        help_text="Automobilio techninės apžiūros pabaigos data"
+    )
+    car_weight = models.IntegerField(
+        "Automobilio masė",
+        help_text="Automobilio nuosava masė"
+    )
+    car_vin_number = models.CharField(
+        "Automobilio numeris (VIN)",
+        max_length=30,
+        help_text="Automobilio kebulo numeris/indentifikavimo numeris"
+    )
+    car_poster_owner = models.ForeignKey(
+        Seller,
+        on_delete=models.CASCADE
+    )
+    poster_date = models.DateTimeField(
+        "Skelbimo data",
+        default=now,
+        blank=True,
+        help_text="Skelbimo sukurimo data"
+    )
+    poster_sold_date = models.DateTimeField(
+        "Skelbimo pardavimo data",
+        null=True,
+        default=None
+    )
+    car_poster_price = models.IntegerField(
+        "Skelbimo suma",
+        default=None,
+        help_text="Parduodamo automobilio kaina"
+    )
+    car_photo_1 = models.ImageField(
+        'Skelbimo nuotrauka 1',
+        upload_to='poster-photos',
+        null=True
+    )
+    car_photo_2 = models.ImageField(
+        'Skelbimo nuotrauka 2',
+        upload_to='poster-photos',
+        null=True
+    )
+    car_photo_3 = models.ImageField(
+        'Skelbimo nuotrauka 3',
+        upload_to='poster-photos',
+        null=True
+    )
+    car_photo_4 = models.ImageField(
+        'Skelbimo nuotrauka 4',
+        upload_to='poster-photos',
+        null=True
+    )
+    car_photo_5 = models.ImageField(
+        'Skelbimo nuotrauka 5',
+        upload_to='poster-photos',
+        null=True
+    )
+    car_photo_6 = models.ImageField(
+        'Skelbimo nuotrauka 6',
+        upload_to='poster-photos',
+        null=True
+    )
+    car_photo_7 = models.ImageField(
+        'Skelbimo nuotrauka 7',
+        upload_to='poster-photos',
+        null=True
+    )
     description = HTMLField()
 
     POSTER_STATUS = (
