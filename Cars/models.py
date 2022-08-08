@@ -88,7 +88,8 @@ class CarPoster(models.Model):
     poster_sold_date = models.DateTimeField(
         "Skelbimo pardavimo data",
         null=True,
-        default=None
+        default=None,
+        blank = True,
     )
     car_poster_price = models.IntegerField(
         "Skelbimo suma",
