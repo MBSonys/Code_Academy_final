@@ -98,39 +98,64 @@ class CarPoster(models.Model):
     car_photo_1 = models.ImageField(
         'Skelbimo nuotrauka 1',
         upload_to='poster-photos',
-        null=True
+        null=True,
+        default = "no_car_photo.png"
     )
     car_photo_2 = models.ImageField(
         'Skelbimo nuotrauka 2',
         upload_to='poster-photos',
-        null=True
+        null=True,
+        default = "no_car_photo.png"
     )
     car_photo_3 = models.ImageField(
         'Skelbimo nuotrauka 3',
         upload_to='poster-photos',
-        null=True
+        null=True,
+        default = "no_car_photo.png"
     )
     car_photo_4 = models.ImageField(
         'Skelbimo nuotrauka 4',
         upload_to='poster-photos',
-        null=True
+        null=True,
+        default = "no_car_photo.png"
     )
     car_photo_5 = models.ImageField(
         'Skelbimo nuotrauka 5',
         upload_to='poster-photos',
-        null=True
+        null=True,
+        default = "no_car_photo.png"
     )
     car_photo_6 = models.ImageField(
         'Skelbimo nuotrauka 6',
         upload_to='poster-photos',
-        null=True
+        null=True,
+        default = "no_car_photo.png"
     )
     car_photo_7 = models.ImageField(
         'Skelbimo nuotrauka 7',
         upload_to='poster-photos',
-        null=True
+        null=True,
+        default = "no_car_photo.png"
     )
-    description = HTMLField()
+    car_photo_8 = models.ImageField(
+        'Skelbimo nuotrauka 8',
+        upload_to='poster-photos',
+        null=True,
+        default="no_car_photo.png"
+    )
+    car_photo_9 = models.ImageField(
+        'Skelbimo nuotrauka 9',
+        upload_to='poster-photos',
+        null=True,
+        default="no_car_photo.png"
+    )
+    car_photo_10 = models.ImageField(
+        'Skelbimo nuotrauka 10',
+        upload_to='poster-photos',
+        null=True,
+        default="no_car_photo.png"
+    )
+    description = HTMLField(default= "For more info Call")
 
     POSTER_STATUS = (
         ('a', 'Patvirtintas'),
@@ -158,6 +183,10 @@ class CarPoster(models.Model):
     def get_absolute_url(self):
         return reverse('poster-detail', args=[str(self.id)])
 
+    def delete_object(self):
+        posters = CarPoster.objects.filter(status__exact='r')
+        if posters == None:
+            posters.delete()
 
 
 
