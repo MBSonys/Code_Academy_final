@@ -80,8 +80,10 @@
 										<option value="1">Cars</option>
 										<option value="1">Users</option>
 									</select>
-									<input class="input" placeholder="Search here">
-									<button class="search-btn">Search</button>
+									<form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
+									<input type="text" name="query" class="input" placeholder="Search here">
+									<input type="submit" class="search-btn" value="Search">
+									</form>
 								</form>
 							</div>
 						</div>
@@ -185,7 +187,7 @@
 			<!-- /container -->
 		</nav>
 		<!-- /NAVIGATION -->
-
+	{% block content %}{% endblock %}
 		<!-- SECTION -->
 		<div class="section">
 			<!-- container -->
@@ -282,9 +284,8 @@
 											<div class="product-body">
 												<p class="product-category">Category</p>
 												{% if carposter_list %}
-												 {% for cars in carposter_list %}
-												<h3 class="product-name"><a href="#">{{ carposter_list}}</a></h3>
-												<h4 class="product-price">${{ cars.car_poster_price }} <del class="product-old-price">${{ cars.id }}</del></h4>
+												<h3 class="product-name"><a href="#">{{ carposter_list }}</a></h3>
+												<h4 class="product-price">$ <del class="product-old-price">$</del></h4>
 												<div class="product-rating">
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
@@ -292,7 +293,6 @@
 													<i class="fa fa-star"></i>
 													<i class="fa fa-star"></i>
 												</div>
-												{% endfor %}
 												{% endif %}
 												<div class="product-btns">
 													<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
