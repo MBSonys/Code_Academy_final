@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 class CarsHomePageListView(generic.ListView):
     model = CarPoster
-    queryset = CarPoster.objects.all()
+    queryset = list(CarPoster.objects.all())
     template_name = 'index.html'
 
 

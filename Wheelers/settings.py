@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -197,4 +198,4 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-SITE_ID = 2
+SITE_ID = 3
