@@ -36,7 +36,7 @@
             </div>
             <button type="submit" class="btn btn-primary register-button">Register</button>
         </form>
-        <p>If already have account, <a href="/login"><strong>Login</strong></a></p>
+        <p>If already have account, <a href="{% url 'login'%}?next={{request.path}}"><strong>Login</strong></a></p>
     </div>
 
 {% endblock %}

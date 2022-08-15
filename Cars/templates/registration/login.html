@@ -1,20 +1,18 @@
 {% extends "index.html" %}
 {% load socialaccount %}
 {% block content %}
-
+<div class="login container">
   {% if form.errors %}
     <p>Login error, please try again</p>
   {% endif %}
-  
   {% if next %}
     {% if user.is_authenticated %}
-      <p>To see info, you have to login/p>
+      <p>You dont have authorization. Please Log In</p>
     {% endif %}
   {% endif %}
-  
+
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-    <table>
       <tr>
         <td>User: </td>
         <td>{{ form.username }}</td>
@@ -40,5 +38,7 @@
         Login with Google
     </a>
 </div>
-
+</div>
 {% endblock %}
+
+

@@ -46,3 +46,4 @@ def register(request):
             messages.error(request, 'Passwords not the same!')
             return redirect('register')
     return render(request, 'register.html')
+
