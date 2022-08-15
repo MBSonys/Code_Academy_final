@@ -57,5 +57,5 @@ def login(request):
         login(request, user)
         return render(request, 'login.html')
         ...
-    else:
-        # Return an 'invalid login' error message.
+    # else:
+    #     # Return an 'invalid login' error message.
