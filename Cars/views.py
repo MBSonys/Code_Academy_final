@@ -11,8 +11,10 @@ from django.contrib.auth import authenticate, login
 
 class CarsHomePageListView(generic.ListView):
     model = CarPoster
-    queryset = list(CarPoster.objects.all())
+    queryset = CarPoster.objects.all()
     template_name = 'index.html'
+    query_to_delete = CarPoster.objects.filter(status__exact='r').all()
+    query_to_delete.delete()
 
 
 @login_required
