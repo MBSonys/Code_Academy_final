@@ -35,8 +35,8 @@ class CarPoster(models.Model):
     )
     car_poster_owner = models.ForeignKey(Seller, on_delete=models.CASCADE)
     poster_date = models.DateTimeField("Skelbimo data", default=now, blank=True, help_text="Skelbimo sukurimo data")
-    poster_sold_date = models.DateTimeField("Skelbimo pardavimo data", null=True, default=None, blank = True)
-    car_poster_price = models.IntegerField("Skelbimo suma", default=None, help_text="Parduodamo automobilio kaina")
+    poster_sold_date = models.DateTimeField("Skelbimo pardavimo data", null=True, blank=True)
+    car_poster_price = models.IntegerField("Skelbimo suma", help_text="Parduodamo automobilio kaina")
     car_photo_1 = models.ImageField(
         'Skelbimo nuotrauka 1',
         upload_to='poster-photos',
