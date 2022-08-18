@@ -178,7 +178,7 @@ EMAIL_HOST_USER = 'zppython10@gmail.com'
 EMAIL_HOST_PASSWORD = 'VerySecret'
 
 
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

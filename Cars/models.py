@@ -3,6 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils.timezone import now
 from tinymce.models import HTMLField
+import datetime
 
 
 class CarPoster(models.Model):
@@ -98,6 +99,7 @@ class CarPoster(models.Model):
         default="no_car_photo.png"
     )
     description = HTMLField(default= "For more info Call")
+    sellers_likes = models.ManyToManyField(Seller, related_name='likes')
 
     POSTER_STATUS = (
         ('a', 'Patvirtintas'),
@@ -124,5 +126,15 @@ class CarPoster(models.Model):
 
     def get_absolute_url(self):
         return reverse('poster-detail', args=[str(self.id)])
+
+    def poster_sold_date(self):
+        object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
+        object_to_add_date.poster_sold_date.now()
+        object_to_add_date.save()
+
+    def delete_sold_after_48h(self):
+        object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
+        if object_to_add_date.poster_sold_date + datetime.timedelta(days=2) < datetime.datetime.today():
+            object_to_add_date.delete()
 
 
