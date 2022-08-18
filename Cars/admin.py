@@ -8,6 +8,7 @@ class CarPostersAdmin(admin.ModelAdmin):
     list_filter = ('car_make', 'status')
     search_fields = ('car_make', 'car_model', 'car_poster_owner', 'poster_date', 'car_poster_price', 'car_year')
     list_editable = ['status']
+    list_per_page = 10
 
 
 admin.site.register(CarPoster, CarPostersAdmin)
