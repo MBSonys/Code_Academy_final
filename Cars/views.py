@@ -27,6 +27,11 @@ class CarsHomePageListView(generic.ListView):
         return queryset
 
 
+class CarPosterDetailView(generic.DetailView):
+    model = CarPoster
+    template_name = 'car_detail.html'
+
+
 @login_required
 def profile(request):
     return render(request, 'profile.html')
