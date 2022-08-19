@@ -273,85 +273,39 @@
 
 						<div class="products-widget-slick" data-nav="#slick-nav-3">
 							<div>
+								{% if cars %}
+								{% for car in cars.fresh_new_1_3 %}
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="{% static 'img/product07.png' %}" alt="">
+										<img src="{{ car.car_photo_1.url }}" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<h3 class="product-name"><a href="#">{{ car.car_make }} {{ car.car_model }} {{ car.car_engine }}</a></h3>
+										<h4 class="product-price">{{ car.car_poster_price }} €</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="{% static 'img/product08.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="{% static 'img/product09.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+								{% endfor %}
+								{% endif %}
 							</div>
 
 							<div>
+								{% if cars %}
+								{% for car in cars.fresh_new_3_6 %}
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="{% static 'img/product01.png' %}" alt="">
+										<img src="{{ car.car_photo_1.url }}" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<h3 class="product-name"><a href="#">{{ car.car_make }} {{ car.car_model }} {{ car.car_engine }}</a></h3>
+										<h4 class="product-price">{{ car.car_poster_price }} €</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="{% static 'img/product02.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="{% static 'img/product03.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+								{% endfor %}
+								{% endif %}
 							</div>
 						</div>
 					</div>
@@ -366,85 +320,40 @@
 
 						<div class="products-widget-slick" data-nav="#slick-nav-4">
 							<div>
+								{% if cars %}
+								{% for car in cars.highest_price_1_3 %}
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="{% static 'img/product04.png' %}" alt="">
+										<img src="{{ car.car_photo_1.url }}" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<h3 class="product-name"><a href="#">{{ car.car_make }} {{ car.car_model }} {{ car.car_engine }}</a></h3>
+										<h4 class="product-price">{{ car.car_poster_price }} €</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
+								{% endfor %}
+								{% endif %}
 
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="{% static 'img/product05.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="{% static 'img/product06.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
 							</div>
 
 							<div>
+								{% if cars %}
+								{% for car in cars.highest_price_3_6 %}
 								<!-- product widget -->
 								<div class="product-widget">
 									<div class="product-img">
-										<img src="{% static 'img/product07.png' %}" alt="">
+										<img src="{{ car.car_photo_1.url }}" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
+										<h3 class="product-name"><a href="#">{{ car.car_make }} {{ car.car_model }} {{ car.car_engine }}</a></h3>
+										<h4 class="product-price">{{ car.car_poster_price }} €</h4>
 									</div>
 								</div>
 								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="{% static 'img/product08.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- /product widget -->
-
-								<!-- product widget -->
-								<div class="product-widget">
-									<div class="product-img">
-										<img src="{% static 'img/product09.png' %}" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="#">product name goes here</a></h3>
-										<h4 class="product-price">$980.00 <del class="product-old-price">$990.00</del></h4>
-									</div>
-								</div>
-								<!-- product widget -->
+								{% endfor %}
+								{% endif %}
 							</div>
 						</div>
 					</div>
