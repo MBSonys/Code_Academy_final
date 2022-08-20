@@ -36,7 +36,6 @@ class CarPoster(models.Model):
     )
     car_poster_owner = models.ForeignKey(Seller, on_delete=models.CASCADE)
     poster_date = models.DateTimeField("Skelbimo data", default=now, blank=True, help_text="Skelbimo sukurimo data")
-    poster_sold_date = models.DateTimeField("Skelbimo pardavimo data", null=True, blank=True)
     car_poster_price = models.IntegerField("Skelbimo suma", help_text="Parduodamo automobilio kaina")
     car_photo_1 = models.ImageField(
         'Skelbimo nuotrauka 1',
@@ -100,6 +99,7 @@ class CarPoster(models.Model):
     )
     description = HTMLField(default= "For more info Call")
     sellers_likes = models.ManyToManyField(Seller, related_name='likes')
+    # poster_sold_date = models.DateTimeField("Skelbimo pardavimo data", null=True, blank=True)
 
     POSTER_STATUS = (
         ('a', 'Patvirtintas'),
@@ -127,14 +127,14 @@ class CarPoster(models.Model):
     def get_absolute_url(self):
         return reverse('poster-detail', args=[str(self.id)])
 
-    def poster_sold_date(self):
-        object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
-        object_to_add_date.poster_sold_date.now()
-        object_to_add_date.save()
+    # def add_poster_sold_date(self):
+    #     object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
+    #     # object_to_add_date.poster_sold_date.now()
+    #     # object_to_add_date.save()
 
-    def delete_sold_after_48h(self):
-        object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
-        if object_to_add_date.poster_sold_date + datetime.timedelta(days=2) < datetime.datetime.today():
-            object_to_add_date.delete()
+    # def delete_sold_after_48h(self):
+    #     object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
+    #     if object_to_add_date.poster_sold_date + datetime.timedelta(days=2) < datetime.datetime.today():
+    #         object_to_add_date.delete()
 
 

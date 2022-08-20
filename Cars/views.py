@@ -12,19 +12,9 @@ from django.contrib.auth import authenticate, login
 class CarsHomePageListView(generic.ListView):
     model = CarPoster
     template_name = 'index.html'
-    context_object_name = "cars"
     query_to_delete = CarPoster.objects.filter(status__exact='r').all()
     query_to_delete.delete()
 
-    def get_queryset(self):
-        queryset = {
-            "fresh_new": CarPoster.objects.filter(status__exact='a').all().order_by('-poster_date')[:6],
-            "fresh_new_1_3": CarPoster.objects.filter(status__exact='a').all().order_by('-poster_date')[:3],
-            "fresh_new_3_6": CarPoster.objects.filter(status__exact='a').all().order_by('-poster_date')[3:6],
-            "highest_price_1_3": CarPoster.objects.filter(status__exact='a').all().order_by('-car_poster_price')[:3],
-            "highest_price_3_6": CarPoster.objects.filter(status__exact='a').all().order_by('-car_poster_price')[3:6]
-        }
-        return queryset
 
 
 class CarPosterDetailView(generic.DetailView):
