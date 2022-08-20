@@ -18,11 +18,11 @@ class CarsHomePageListView(generic.ListView):
 
     def get_queryset(self):
         queryset = {
-            "fresh_new": CarPoster.objects.all().order_by('-poster_date')[:6],
-            "fresh_new_1_3": CarPoster.objects.all().order_by('-poster_date')[:3],
-            "fresh_new_3_6": CarPoster.objects.all().order_by('-poster_date')[3:6],
-            "highest_price_1_3": CarPoster.objects.all().order_by('-car_poster_price')[:3],
-            "highest_price_3_6": CarPoster.objects.all().order_by('-car_poster_price')[3:6]
+            "fresh_new": CarPoster.objects.filter(status__exact='a').all().order_by('-poster_date')[:6],
+            "fresh_new_1_3": CarPoster.objects.filter(status__exact='a').all().order_by('-poster_date')[:3],
+            "fresh_new_3_6": CarPoster.objects.filter(status__exact='a').all().order_by('-poster_date')[3:6],
+            "highest_price_1_3": CarPoster.objects.filter(status__exact='a').all().order_by('-car_poster_price')[:3],
+            "highest_price_3_6": CarPoster.objects.filter(status__exact='a').all().order_by('-car_poster_price')[3:6]
         }
         return queryset
 
