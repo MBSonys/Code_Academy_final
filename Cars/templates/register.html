@@ -152,7 +152,7 @@ License Terms
                         <i class="fa fa-user-circle"></i>
                         <span class="signup"><a href="{% url 'login'%}?next={{request.path}}">If already have account, Login</a></span>
                     </div>
-                    <form class="form-horizontal" method="post" action="{% url 'login' %}">
+                    <form class="form-horizontal" method="post" action="{% url 'register' %}">
                         {% csrf_token %}
                         <h3 class="title">Registration</h3>
                         <div class="form-group">
@@ -165,7 +165,7 @@ License Terms
                         </div>
                         <div class="form-group">
                             <span class="input-icon"><i class="fa fa-lock"></i></span>
-                            <input name='password' class="form-control" type="text" placeholder="Password">
+                            <input name='password' class="form-control" type="password" placeholder="Password">
                         </div>
                         <div class="form-group">
                             <span class="input-icon"><i class="fa fa-lock"></i></span>

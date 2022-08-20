@@ -99,7 +99,6 @@ class CarPoster(models.Model):
     )
     description = HTMLField(default= "For more info Call")
     sellers_likes = models.ManyToManyField(Seller, related_name='likes')
-    # poster_sold_date = models.DateTimeField("Skelbimo pardavimo data", null=True, blank=True)
 
     POSTER_STATUS = (
         ('a', 'Patvirtintas'),
@@ -129,12 +128,12 @@ class CarPoster(models.Model):
 
     # def add_poster_sold_date(self):
     #     object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
-    #     # object_to_add_date.poster_sold_date.now()
-    #     # object_to_add_date.save()
-
+    #     object_to_add_date.sold_date = datetime.datetime.now()
+    #     object_to_add_date.save()
+    #
     # def delete_sold_after_48h(self):
     #     object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
-    #     if object_to_add_date.poster_sold_date + datetime.timedelta(days=2) < datetime.datetime.today():
+    #     if object_to_add_date.sold_date + datetime.timedelta(days=2) < datetime.datetime.today():
     #         object_to_add_date.delete()
 
 

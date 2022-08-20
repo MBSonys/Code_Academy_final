@@ -1095,6 +1095,8 @@ textarea.input {
 
 .product-widget .product-img>img {
   width: 100%;
+  max-width: 293px;
+  max-height: 195px;
 }
 
 .product-widget .product-body {

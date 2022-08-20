@@ -12,9 +12,16 @@ from django.contrib.auth import authenticate, login
 class CarsHomePageListView(generic.ListView):
     model = CarPoster
     template_name = 'index.html'
-    query_to_delete = CarPoster.objects.filter(status__exact='r').all()
-    query_to_delete.delete()
+    # query_to_delete = CarPoster.objects.filter(status__exact='r').all()
+    # query_to_delete.delete()
 
+
+class CarShowAllListView(generic.ListView):
+    model = CarPoster
+    context_object_name = 'all_cars'
+    paginate_by = 12
+    queryset = CarPoster.objects.filter(status__exact='a').all().order_by('-poster_date')
+    template_name = 'car_list.html'
 
 
 class CarPosterDetailView(generic.DetailView):
