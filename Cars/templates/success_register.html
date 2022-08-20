@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>Congrat {{ new_user_name }}, registration successful</h1>
+  <p>Now you can login and see detailed view of cars, add and sell your used cars</p>
+  <p><a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a></p>
+</div>
+{% endblock %}

@@ -57,6 +57,8 @@ def register(request):
                     return redirect('register')
                 else:
                     User.objects.create_user(username=username, email=email, password=password)
+                    context = {'new_user_name': username}
+                    return render(request, 'success_register.html', context=context)
         else:
             messages.error(request, 'Passwords not the same!')
             return redirect('register')
