@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class CarsHomePageListView(generic.ListView):
@@ -29,9 +30,24 @@ class CarPosterDetailView(generic.DetailView):
     template_name = 'car_detail.html'
 
 
+class CarPostersByUserListView(LoginRequiredMixin, generic.ListView):
+    model = CarPoster
+    context_object_name = 'user_cars'
+    template_name = 'user_cars.html'
+    paginate_by = 12
+
+    def get_queryset(self):
+        return CarPoster.objects.filter(
+            car_poster_owner=self.request.user.seller
+        ).filter(
+            status__exact='a'
+        ).order_by('-poster_date')
+
+
 @login_required
 def profile(request):
-    return render(request, 'profile.html')
+    car_count = {'number_of_cars': CarPoster.objects.filter(car_poster_owner=request.user.seller).filter(status__exact='a').count()}
+    return render(request, 'profile.html', context=car_count)
 
 
 def search(request):

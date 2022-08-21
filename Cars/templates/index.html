@@ -34,6 +34,71 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		<style>
+.counter{
+    color: #444;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.counter .counter-value{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 250;
+    line-height: 90px;
+    height: 100px;
+    width: 100px;
+    margin: 0 auto 10px;
+    border-radius: 50% 0 50% 50%;
+    border: 7px solid #FF2B08;
+    border-right-color: transparent;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+.counter .counter-value:before{
+    content: '';
+    background: linear-gradient(to right bottom,#FF2B08,#FE9C04);
+    border-radius: 50%;
+    box-shadow: 0 0 10px -3px rgba(0,0,0,0.5);
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    bottom: 6px;
+    right: 6px;
+    z-index: -1;
+}
+.counter h3{
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin: 0;
+}
+.counter.purple .counter-value{
+    border-color: #6101E5;
+    border-right-color: transparent;
+}
+.counter.purple .counter-value:before{
+    background: linear-gradient(to right bottom,#6101E5,#9F27E8);
+}
+.counter.blue .counter-value{
+    border-color: #0284F3;
+    border-right-color: transparent;
+}
+.counter.blue .counter-value:before{
+    background: linear-gradient(to right bottom,#0284F3,#1DC0E1);
+}
+.counter.pink .counter-value{
+    border-color: #435CF8;
+    border-right-color: transparent;
+}
+.counter.pink .counter-value:before{
+    background: linear-gradient(to right bottom,#435CF8,#FF4674);
+}
+@media screen and (max-width:990px){
+    .counter{ margin-bottom: 40px; }
+}
+		</style>
     </head>
 	<body>
 		<!-- HEADER -->
@@ -94,7 +159,6 @@
 							</div>
 						</div>
 						<!-- /SEARCH BAR -->
-
 						<!-- ACCOUNT -->
 						<div class="col-md-3 clearfix">
 							<div class="header-ctn">
@@ -109,6 +173,16 @@
 								<!-- /Menu Toogle -->
 							</div>
 						</div>
+						<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="counter purple">
+                <span class="counter-value">{{ number_of_cars }}</span>
+                <h3>Number of Cars</h3>
+            </div>
+        </div>
+    </div>
+</div>
 						<!-- /ACCOUNT -->
 					</div>
 					<!-- row -->
@@ -537,8 +611,22 @@
 		<script src="{% static 'js/bootstrap.min.js' %}"></script>
 		<script src="{% static 'js/slick.min.js' %}"></script>
 		<script src="{% static 'js/nouislider.min.js' %}"></script>
-		<script src="{% static 'js/jquery.zoom.min.js' %}""></script>
+		<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
 		<script src="{% static 'js/main.js' %}"></script>
-
+<script>
+$(document).ready(function(){
+    $('.counter-value').each(function(){
+        $(this).prop('Counter',0).animate({
+            Counter: $(this).text()
+        },{
+            duration: 3500,
+            easing: 'swing',
+            step: function (now){
+                $(this).text(Math.ceil(now));
+            }
+        });
+    });
+});
+</script>
 	</body>
 </html>

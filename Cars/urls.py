@@ -11,4 +11,5 @@ urlpatterns = [
     path('<int:pk>', views.CarPosterDetailView.as_view(), name='car_detail'),
     path('all_posters/', views.CarShowAllListView.as_view(), name='all_posters'),
     path('all_posters/<int:pk>', views.CarPosterDetailView.as_view(), name='car_detail'),
+    path('mycars/', views.CarPostersByUserListView.as_view(), name='my_cars')
 ]
