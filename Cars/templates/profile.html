@@ -382,64 +382,36 @@ ul.summary-list > li:last-child  {
 
           <ul class="nav nav-pills nav-stacked">
               <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
-              <li><a href="{% url 'my_cars' %}"> <i class="fa fa-calendar"></i> Your Cars <span class="label label-warning pull-right r-activity">{{ number_of_cars }}</span></a></li>
-              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
+              <li><a href="{% url 'my_cars' %}"> <i class="fa fa-calendar"></i> Your Cars <span class="label label-warning pull-right r-activity">{{ number_of_user_cars }}</span></a></li>
+              <li><a href="{% url 'edit_profile' %}"> <i class="fa fa-edit"></i> Edit profile</a></li>
           </ul>
       </div>
   </div>
   <div class="profile-info col-md-9">
       <div class="panel">
-          <form>
-              <textarea placeholder="Whats in your mind today?" rows="2" class="form-control input-lg p-text-area"></textarea>
-          </form>
-          <footer class="panel-footer">
-              <button class="btn btn-warning pull-right">Post</button>
-              <ul class="nav nav-pills">
-                  <li>
-                      <a href="#"><i class="fa fa-map-marker"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class="fa fa-camera"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class=" fa fa-film"></i></a>
-                  </li>
-                  <li>
-                      <a href="#"><i class="fa fa-microphone"></i></a>
-                  </li>
-              </ul>
-          </footer>
-      </div>
-      <div class="panel">
           <div class="bio-graph-heading">
-              Aliquam ac magna metus. Nam sed arcu non tellus fringilla fringilla ut vel ispum. Aliquam ac magna metus.
+              Welcome to your profile! Add, edit and delete posters.
           </div>
           <div class="panel-body bio-graph-info">
-              <h1>Bio Graph</h1>
+              <h1>Info</h1>
               <div class="row">
                   <div class="bio-row">
-                      <p><span>First Name </span>: Camila</p>
+                      <p><span>First Name </span>: {{ user.first_name }}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Last Name </span>: Smith</p>
+                      <p><span>Last Name </span>: {{ user.last_name }}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Country </span>: Australia</p>
+                      <p><span>Location </span>: {{ user.seller.location }}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Birthday</span>: 13 July 1983</p>
+                      <p><span>Joined</span>: {{ user.date_joined }}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Occupation </span>: UI Designer</p>
+                      <p><span>Email </span>: {{ user.email}}</p>
                   </div>
                   <div class="bio-row">
-                      <p><span>Email </span>: jsmith@flatlab.com</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Mobile </span>: (12) 03 4567890</p>
-                  </div>
-                  <div class="bio-row">
-                      <p><span>Phone </span>: 88 (02) 123456</p>
+                      <p><span>Phone </span>: {{ user.seller.phone_number }}</p>
                   </div>
               </div>
           </div>

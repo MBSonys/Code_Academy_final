@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from Users.forms import UserUpdateForm, SellerUpdateForm
 
 class CarsHomePageListView(generic.ListView):
     model = CarPoster
@@ -46,7 +46,7 @@ class CarPostersByUserListView(LoginRequiredMixin, generic.ListView):
 
 @login_required
 def profile(request):
-    car_count = {'number_of_cars': CarPoster.objects.filter(car_poster_owner=request.user.seller).filter(status__exact='a').count()}
+    car_count = {'number_of_user_cars': CarPoster.objects.filter(car_poster_owner=request.user.seller).filter(status__exact='a').count()}
     return render(request, 'profile.html', context=car_count)
 
 
@@ -91,3 +91,23 @@ def login(request):
         ...
     # else:
     #     # Return an 'invalid login' error message.
+
+@login_required
+def profile_edit(request):
+    if request.method == "POST":
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = SellerUpdateForm(request.POST, request.FILES, instance=request.user.seller)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f"Profile updated")
+            return redirect('profile')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = SellerUpdateForm(instance=request.user.seller)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, 'profile_update.html', context)
