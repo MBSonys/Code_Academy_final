@@ -208,3 +208,4 @@ def profile_edit(request):
         'p_form': p_form,
     }
     return render(request, 'profile_update.html', context)
+
