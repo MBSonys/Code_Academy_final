@@ -161,10 +161,10 @@
 								<li><a href="#"><i class="fa fa-heart-o"></i>Like this Car</a></li>
 							</ul><br>
 							<div>
-								<p><i class="fa fa-car"></i> Viewed: 0</p>
+								<p><i class="fa fa-car"></i> Viewed: {{ carposter.read_count }}</p>
 							</div>
 							<div>
-								<h3 class="product-price">{{ carposter.sellers_likes | length }} Likes</h3>
+								<h3 class="product-price">{{ carposter.sellers_likes.all|length }} Likes</h3>
 							</div>
 						</div>
 					</div>

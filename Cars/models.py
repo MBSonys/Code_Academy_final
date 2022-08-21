@@ -99,6 +99,8 @@ class CarPoster(models.Model):
     )
     description = HTMLField(default= "For more info Call")
     sellers_likes = models.ManyToManyField(Seller, related_name='likes')
+    read_count = models.IntegerField(default=0)
+    sold_date = models.DateTimeField("Skelbimo pardavimo data",null=True, blank=True, help_text="Skelbimo sukurimo data")
 
     POSTER_STATUS = (
         ('a', 'Patvirtintas'),

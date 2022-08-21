@@ -30,6 +30,12 @@ class CarPosterDetailView(LoginRequiredMixin, generic.DetailView):
     model = CarPoster
     template_name = 'car_detail.html'
 
+    def get_object(self):
+        add_view = super().get_object()
+        add_view.read_count += 1
+        add_view.save()
+        return add_view
+
 
 class CarPostersByUserListView(LoginRequiredMixin, generic.ListView):
     model = CarPoster
