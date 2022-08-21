@@ -16,52 +16,52 @@
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_2.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_2.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_3.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_3.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_4.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_4.url }}" alt="">
 								{% endif %}
 							</div>
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_5.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_5.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_6.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_6.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_7.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_7.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_8.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_8.url }}" alt="">
 								{% endif %}
 							</div>
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_9.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_9.url }}" alt="">
 								{% endif %}
 							</div>
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_10.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_10.url }}" alt="">
 								{% endif %}
 							</div>
@@ -79,52 +79,52 @@
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_2.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_2.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_3.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_3.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_4.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_4.url }}" alt="">
 								{% endif %}
 							</div>
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_5.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_5.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_6.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_6.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_7.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_7.url }}" alt="">
 								{% endif %}
 							</div>
 
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_8.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_8.url }}" alt="">
 								{% endif %}
 							</div>
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_9.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_9.url }}" alt="">
 								{% endif %}
 							</div>
 							<div class="product-preview">
-								{% if carposter.car_photo_1.url != "no_car_photo.png" %}
+								{% if carposter.car_photo_10.url != "no_car_photo.png" %}
 								<img src="{{ carposter.car_photo_10.url }}" alt="">
 								{% endif %}
 							</div>
@@ -146,14 +146,17 @@
 								<li><i class="fa fa-car"></i> Phone Number: {{ carposter.car_poster_owner.phone_number }}</li><br>
 								<li><i class="fa fa-car"></i> Date: {{ carposter.poster_date }}</li><br>
 							</ul>
-
 							<div class="product-options">
 							</div>
-
 							<div class="add-to-cart">
 								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Buy</button>
 							</div>
-
+							{% if object.car_poster_owner == user.seller %}
+            				<div class="add-to-cart">
+                			<a class="add-to-cart-btn" href="{% url 'UpdateCar' carposter.id %}">Update</a>
+								<a class="add-to-cart-btn" href="{% url 'DeleteCar' carposter.id %}">Delete</a>
+            				</div>
+            				{% endif %}
 							<ul class="product-btns">
 								<li><a href="#"><i class="fa fa-heart-o"></i>Like this Car</a></li>
 							</ul><br>

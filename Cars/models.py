@@ -124,7 +124,7 @@ class CarPoster(models.Model):
         return f"{self.car_make} - {self.car_model} : {self.car_year} - {self.car_engine}"
 
     def get_absolute_url(self):
-        return reverse('poster-detail', args=[str(self.id)])
+        return reverse('car_detail', args=[str(self.id)])
 
     # def add_poster_sold_date(self):
     #     object_to_add_date = CarPoster.objects.filter(status__exact='s').all()
